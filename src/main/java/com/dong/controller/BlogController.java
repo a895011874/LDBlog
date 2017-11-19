@@ -33,7 +33,7 @@ public class BlogController
     {
         HttpRes httpRes = new HttpRes();
         Blog blog = new Blog();
-        blog.setTitle("title");
+         blog.setTitle("title");
         blog.setId("21");
         blog.setContent("dawdsa");
         blog.setType(8);
@@ -44,7 +44,7 @@ public class BlogController
         return httpRes;
     }
 
-    @DeleteMapping(value ="girl/{id}")
+    @DeleteMapping(value ="blog/{id}")
     public HttpRes deleteBlog(@PathVariable("id") String id)
     {
         blogService.deleteBlog(id);
