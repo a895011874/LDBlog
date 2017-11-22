@@ -1,65 +1,70 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org" ng-app="app">
 <head>
-	<meta charset="UTF-8"/>
-	<script type="text/javascript"  src="./common/jquery/jquery-3.1.1.js"></script>
-	<script type="text/javascript" src="./common/js/bootstrap.js"></script>
-	<script type="text/javascript" src="./common/js/angular.min.js"></script>
-	<script type="text/javascript" src="./login.js"></script>
-	<!--<link rel="stylesheet" type="text/css" href="../static/common/css/bootstrap-theme.css">-->
-	<link rel="stylesheet" type="text/css" href="./common/css/bootstrap.css" />
-	<title>Login</title>
+    <meta charset="UTF-8"/>
+    <script type="text/javascript" src="common/jquery/jquery-3.1.1.js"></script>
+    <script type="text/javascript" src="common/js/bootstrap.js"></script>
+    <script type="text/javascript" src="common/js/angular.min.js"></script>
+    <script type="text/javascript" src="login.js"></script>
+    <!--<link rel="stylesheet" type="text/css" href="../static/common/css/bootstrap-theme.css">-->
+    <link rel="stylesheet" type="text/css" href="common/css/bootstrap.css"/>
+    <title>Login</title>
 </head>
 <body>
-	<div class="container" ng-controller="loginController">
-	<div class="row clearfix">
-		<div>ss</div>
-		<div class="col-md-12 column">
-			<div class="jumbotron">
-				<h1>
-					Hello, world!
-				</h1>
-				
-			</div>
-			<div class="row clearfix">
-				<div class="col-md-6 column">
-				</div>
-				<div class="col-md-6 column">
-					<form style="position: relative;right:100px " class="form-horizontal" role="form" name="loginFrm" >
-						<div class="form-group">
-							 <label for="inputUsername" class="col-sm-2 control-label">Username</label>
-							<div class="col-sm-10">
-								<input type="text" class="form-control" id="inputUsername" style="width: 200px" name="username" />
-							</div>
-						</div>
-						<div class="form-group">
-							 <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
-							<div class="col-sm-10">
-								<input type="password" class="form-control" id="inputPassword3" style="width: 200px" name="password" />
-							</div>
-						</div>
-						<div class="form-group">
-							<div class="col-sm-offset-2 col-sm-10">
-								<div class="checkbox">
-									 <label><input type="checkbox" />Remember me</label>
-								</div>
-							</div>
-						</div>
-						<div class="form-group">
-							<div class="col-sm-offset-2 col-sm-10">
-								 <button  class="btn btn-default" ng-click="login()">Sign in</button>
-							</div>
-						</div>
+<div class="container" ng-controller="loginController">
+    <div class="row clearfix">
+        <div>ss</div>
+        <div class="col-md-12 column">
+            <div class="jumbotron">
+                <h1>
+                    Hello, world!
+                </h1>
 
-						<div id="errorfield" style="display: none;">
+            </div>
+            <div class="row clearfix">
+                <div class="col-md-6 column">
+                </div>
+                <div class="col-md-6 column">
+                    <form style="position: relative;right:100px " class="form-horizontal" role="form" name="loginFrm">
+                        <div class="form-group">
+                            <label for="inputUsername" class="col-sm-2 control-label">Username</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="inputUsername" style="width: 200px"
+                                       name="username"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+                            <div class="col-sm-10">
+                                <input type="password" class="form-control" id="inputPassword3" style="width: 200px"
+                                       name="password"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <div class="checkbox">
+                                    <label><input type="checkbox"/>Remember me</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button class="btn btn-default" ng-click="login()">Sign in</button>
+                            <button class="btn " ng-click="register()">Sign up</button>
+                        </div>
 
 
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
+                    </div>
+
+                        <div id="errorfield" style="display: none;">
+
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 </body>
 </html>

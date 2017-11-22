@@ -32,6 +32,10 @@ app.controller("loginController",function ($scope) {
 		
 
 	}
+	$scope.register = function () {
+        window.location.href = "register.html"
+    }
+
 	function verifyParam(name,pass) {
 
 		if (name != "" && pass != "") {

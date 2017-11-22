@@ -8,4 +8,6 @@ import com.dong.dao.User;
 public interface IUserService
 {
     User getUser(String username);
+
+    void addUser(User user);
 }

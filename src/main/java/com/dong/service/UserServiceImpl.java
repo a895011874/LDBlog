@@ -17,4 +17,10 @@ public class UserServiceImpl implements IUserService
 
         return userMapper.getUser(username);
     }
+
+    @Override
+    public void addUser(User user) {
+
+        userMapper.addUser(user);
+    }
 }

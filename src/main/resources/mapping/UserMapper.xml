@@ -18,7 +18,9 @@
         <include refid="Base_Column_List"/>
         FROM tbl_user WHERE username = #{username}
     </select>
-
+    <insert id="addUser" parameterType="com.dong.dao.User">
+        INSERT INTO tbl_user (id,username,password,phone,email) VALUES (#{id,jdbcType = VARCHAR},#{username,jdbcType = VARCHAR},#{password,jdbcType = VARCHAR},#{phone,jdbcType = VARCHAR},#{email,jdbcType = VARCHAR})
+    </insert>
 
 
 </mapper>
