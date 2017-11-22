@@ -1,19 +1,22 @@
-
-var resData = {};
+    var resData = {};
 var app = angular.module("app", []);
 app.controller('blogInfosController', function ($scope) {
+
+
+    console.log(document.cookie);
+
     console.log("blogInfosController is run");
     $.ajax({
-        url:"/blogs",
-        dataType:"json",
-        type:"get",
-        async:false,
-        success:function(data){
+        url: "/ldblog/blogs",
+        dataType: "json",
+        type: "get",
+        async: false,
+        success: function (data) {
             resData = data;
 
             console.log(data);
         },
-        error:function (result) {
+        error: function (result) {
             console.log(result);
         }
     });
@@ -25,5 +28,8 @@ app.controller('blogInfosController', function ($scope) {
         window.open('./blog/blogDetail.html');
     }
 });
+
+
+
 
 

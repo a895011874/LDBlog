@@ -18,6 +18,7 @@ public class BlogController
     @GetMapping(value = "blogs")
     public HttpRes getAllBlog()
     {
+
         HttpRes httpRes = new HttpRes();
         List list = new ArrayList();
         httpRes.setState(HttpRes.SUCCESS);
@@ -36,7 +37,7 @@ public class BlogController
          blog.setTitle("title");
         blog.setId("21");
         blog.setContent("dawdsa");
-        blog.setType(8);
+        blog.setTypeId(8);
         blogService.createBlog(blog);
 
         httpRes.setState(HttpRes.SUCCESS);

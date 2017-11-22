@@ -1,8 +1,5 @@
 package com.dong.dao;
 
-/**
- * Created by Administrator on 2017/11/19.
- */
 public class User
 {
     private String id;

@@ -1,14 +1,13 @@
 package com.dong.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.dong.HttpUtils.HttpRes;
 import com.dong.dao.User;
 import com.dong.service.UserServiceImpl;
+import com.dong.util.JSONParamUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
@@ -24,19 +23,24 @@ public class IndexController
     private UserServiceImpl userService;
 
     @RequestMapping("/")
-    public ModelAndView isLogin()
+    public HttpRes isLogin()
     {
-        ModelAndView mv = new ModelAndView("index");
-        return mv;
+        HttpRes httpRes = new HttpRes();
+        ModelAndView mv = new ModelAndView("login");
+        return httpRes;
     }
 
-    @PostMapping("/login")
-    public HttpRes login(String data){
+    @PostMapping("/loginAction")
+    public HttpRes login(@RequestBody  String data){
         HttpRes res = new HttpRes();
 
-        String username = "admin";
+
+
+
+        String username = JSONParamUtil.getValue(data,"name");
+        String password = JSONParamUtil.getValue(data,"pass");
         User user = userService.getUser(username);
-        String password = "123456";
+
         if (password.equals(user.getPassword())){
             user.setPassword("******");
             res.setState(HttpRes.SUCCESS);
@@ -44,10 +48,13 @@ public class IndexController
             List list = new ArrayList();
             list.add(user);
             res.setData(list);
+//            indexMv.addObject(res);
+            return res;
         }else {
             res.setState(HttpRes.FAILURE);
             res.setErrMsg(" 帐号与密码不匹配");
+            return res;
         }
-        return res;
+
     }
 }

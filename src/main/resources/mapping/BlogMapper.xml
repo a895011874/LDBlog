@@ -3,9 +3,10 @@
 <mapper namespace="com.dong.mapper.BlogMapper">
     <resultMap id="BaseResultMap" type="com.dong.dao.Blog">
         <result column="ID" property="id" jdbcType="VARCHAR"/>
+        <result column="AUTHOR" property="author" jdbcType="VARCHAR"/>
         <result column="TITLE" property="title" jdbcType="VARCHAR"/>
         <result column="CONTENT" property="content" jdbcType="VARCHAR"/>
-        <result column="TYPEID" property="type" jdbcType="VARCHAR"/>
+        <result column="TYPEID" property="typeId" jdbcType="VARCHAR"/>
         <result column="CREATETIME" property="createTime" jdbcType="TIMESTAMP"/>
     </resultMap>
     <sql id="Base_Column_List">
