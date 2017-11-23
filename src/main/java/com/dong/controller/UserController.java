@@ -1,5 +1,6 @@
 package com.dong.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.dong.HttpUtils.HttpRes;
 import com.dong.dao.User;
 import com.dong.service.IUserService;
@@ -9,6 +10,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.util.UUID;
 
 /**
@@ -20,17 +23,20 @@ public class UserController {
     private IUserService userService;
 
     @PostMapping("/user")
-    public HttpRes addUser(@RequestBody String userData) {
+    public HttpRes addUser(@RequestBody String data) {
+
         HttpRes res = new HttpRes();
+
+        JSONObject userJson = JSONObject.parseObject(data);
 
         User user = new User();
 
         UUID uuid = UUID.randomUUID();
         user.setId(uuid.toString());
-        user.setUsername(JSONParamUtil.getValue(userData, "username"));
-        user.setPassword(JSONParamUtil.getValue(userData, "password"));
-        user.setEmail(JSONParamUtil.getValue(userData, "email"));
-        user.setPhone(JSONParamUtil.getValue(userData,"phone"));
+        user.setUsername(userJson.getString("username"));
+        user.setPassword(userJson.getString("password"));
+        user.setEmail(userJson.getString("phone"));
+        user.setPhone(userJson.getString("email"));
 
         userService.addUser(user);
         res.setState(HttpRes.SUCCESS);

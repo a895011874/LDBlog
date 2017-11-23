@@ -34,8 +34,10 @@ public class IndexController
     public HttpRes login(@RequestBody  String data){
         HttpRes res = new HttpRes();
 
+        JSONObject userData = JSONObject.parseObject(data);
 
-
+        String u1 = userData.getString("username");
+        String u2 = userData.getString("password");
 
         String username = JSONParamUtil.getValue(data,"name");
         String password = JSONParamUtil.getValue(data,"pass");

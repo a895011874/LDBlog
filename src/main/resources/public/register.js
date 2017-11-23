@@ -16,7 +16,8 @@ app.controller("registerController", function ($scope) {
         };
         $.ajax({
             url: "/ldblog/user",
-            data: userData,
+            contentType:"application/json;charset=utf-8",
+            data: JSON.stringify(userData),
             dataType: "json",
             type: "post",
             async: false,
