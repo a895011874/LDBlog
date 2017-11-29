@@ -1,5 +1,6 @@
 package com.dong.service;
 
+import com.dong.HttpUtils.HttpRes;
 import com.dong.dao.Blog;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +14,7 @@ public interface IBlogService
 {
     List<Blog> getAllBlog();
 
-    void createBlog(Blog blog);
+    HttpRes createBlog(String blogData);
 
     void deleteBlog(String id);
 

@@ -10,7 +10,7 @@
         <result column="CREATETIME" property="createTime" jdbcType="TIMESTAMP"/>
     </resultMap>
     <sql id="Base_Column_List">
-    ID,TITLE,CONTENT,TYPEid,CREATETIME
+    ID,AUTHOR,TITLE,CONTENT,TYPEid,CREATETIME
   </sql>
 
 
@@ -21,7 +21,7 @@
     </select>
 
     <insert id="createBlog" parameterType="com.dong.dao.Blog">
-    INSERT INTO tbl_blog (id,title,content,typeId,createTime) VALUES (#{id,jdbcType = VARCHAR},#{title,jdbcType =
+    INSERT INTO tbl_blog (id,author,title,content,typeId,createTime) VALUES (#{id,jdbcType = VARCHAR},#{author,jdbcType = VARCHAR},#{title,jdbcType =
      VARCHAR},#{content,jdbcType = VARCHAR},#{typeId,jdbcType = TINYINT},#{createTime,jdbcType=TIMESTAMP})
 
   </insert>

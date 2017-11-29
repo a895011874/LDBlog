@@ -1,5 +1,6 @@
 package com.dong.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.dong.HttpUtils.HttpRes;
 import com.dong.dao.Blog;
 import com.dong.service.IBlogService;
@@ -30,19 +31,16 @@ public class BlogController
     }
 
     @PostMapping(value = "blog")
-    public HttpRes createBlog()
+    public HttpRes createBlog(@RequestBody String data)
     {
-        HttpRes httpRes = new HttpRes();
-        Blog blog = new Blog();
-         blog.setTitle("title");
-        blog.setId("21");
-        blog.setContent("dawdsa");
-        blog.setTypeId(8);
-        blogService.createBlog(blog);
 
-        httpRes.setState(HttpRes.SUCCESS);
-        httpRes.setData(null);
-        return httpRes;
+        HttpRes res = new HttpRes();
+
+
+        blogService.createBlog(data);
+
+
+        return blogService.createBlog(data);
     }
 
     @DeleteMapping(value ="blog/{id}")

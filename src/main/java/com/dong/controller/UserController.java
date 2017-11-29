@@ -35,8 +35,8 @@ public class UserController {
         user.setId(uuid.toString());
         user.setUsername(userJson.getString("username"));
         user.setPassword(userJson.getString("password"));
-        user.setEmail(userJson.getString("phone"));
-        user.setPhone(userJson.getString("email"));
+        user.setEmail(userJson.getString("email"));
+        user.setPhone(userJson.getString("phone"));
 
         userService.addUser(user);
         res.setState(HttpRes.SUCCESS);
