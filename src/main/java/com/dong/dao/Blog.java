@@ -15,6 +15,8 @@ public class Blog
 
     private Integer typeId;
 
+    private String TypeName;
+
     private String createTime;
 
     public String getId() {
@@ -35,6 +37,14 @@ public class Blog
 
     public Integer getTypeId() {
         return typeId;
+    }
+
+    public String getTypeName() {
+        return TypeName;
+    }
+
+    public void setTypeName(String typeName) {
+        TypeName = typeName;
     }
 
     public void setTypeId(Integer typeId) {

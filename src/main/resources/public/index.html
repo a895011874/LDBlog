@@ -15,7 +15,9 @@
 
     <script  src="common/jquery/jquery-3.1.1.js"></script>
     <script src="common/js/angular.min.js"></script>
-    <script  src="index.js"></script>
+
+    <script src="common/js/commonUtil.js"></script>
+    <script  src="js/index.js"></script>
 
 </head>
 
@@ -25,7 +27,7 @@
 
     <!-- The justified navigation menu is meant for single line per list item.
          Multiple lines will require custom code not provided by Bootstrap. -->
-    <div class="masthead">
+    <div class="masthead" style="margin-top: 10px">
         <nav>
             <ul class="nav nav-pills nav-justified">
                 <li class="active"><a href="#">Home</a></li>
@@ -33,7 +35,7 @@
                 <li><a href="#">Services</a></li>
                 <li><a href="#">Downloads</a></li>
                 <li><a href="#">About</a></li>
-                <li><a href="blog/createBlog.html">Create</a></li>
+                <li><a href="createBlog.html" target="_blank">Create</a></li>
             </ul>
         </nav>
     </div>
@@ -47,12 +49,7 @@
 
     <!-- Example row of columns -->
     <div class="row" >
-        <div class="col-lg-4" ng-repeat="data in datas">
-            <h2><span ng-bind="data.title"></span></h2>
-            <span class="label label-default" ng-bind="data.type" style="margin-bottom: 5px"></span>
-            <p><span ng-bind="data.content"></span></p>
-            <p><a href="#" class="btn btn-primary">View details &raquo;</a></p>
-        </div>
+        <div id="blogAreaDiv"></div>
     </div>
     <div class="well well-lg" style="margin-top: 20px">
        <div>

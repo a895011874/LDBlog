@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8"/>
 
-    <script type="text/javascript" src="../common/js/angular.min.js"></script>
-    <script type="text/javascript" src="../common/jquery/jquery-3.1.1.js"></script>
-    <script type="text/javascript" src="../common/js/bootstrap.js"></script>
-    <script type="text/javascript" src="createBlog.js"></script>
-    <script type="text/javascript" src="../common/js/tinymce/tinymce.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="../common/css/bootstrap-theme.css"/>
-    <link rel="stylesheet" type="text/css" href="../common/css/bootstrap.css"/>
+    <script type="text/javascript" src="common/js/angular.min.js"></script>
+    <script type="text/javascript" src="common/jquery/jquery-3.1.1.js"></script>
+    <script type="text/javascript" src="common/js/bootstrap.js"></script>
+    <script type="text/javascript" src="common/js/commonUtil.js"></script>
+    <script type="text/javascript" src="js/blog/createBlog.js"></script>
+    <script type="text/javascript" src="common/js/tinymce/tinymce.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="common/css/bootstrap-theme.css"/>
+    <link rel="stylesheet" type="text/css" href="common/css/bootstrap.css"/>
     <title>create</title>
 </head>
 <body>
@@ -19,13 +20,13 @@
         <div style="margin-top:30px ;">
             <div class="input-group">
                 <span class="input-group-addon">Title</span>
-                <input type="text" class="form-control"  ng-model="data.titleName">
+                <input type="text" class="form-control"  ng-model="data.title" required>
             </div>
 
     </div>
     <div>
         <div class="textarea-group">
-            <textarea class="" name="textarea_1" id="textarea_1" cols="30" rows="10" ng-model="data.article"></textarea>
+            <textarea class="" name="textarea_1" id="textarea_1" cols="30" rows="10" ng-model="data.article" required></textarea>
         </div>
     </div>
 
@@ -33,7 +34,7 @@
         <div class="col-lg-3">
             <div class="input-group">
                 <span class="input-group-addon">分类</span>
-                <select name="type" id="a" class="form-control selectpicker  show-tick" >
+                <select name="type" id="typeId" class="form-control selectpicker  show-tick" >
                      <option ng-repeat="x in types">{{x}}</option>
 
                 </select>

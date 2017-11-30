@@ -1,3 +1,4 @@
+var utilService = new UtilService();
 var app = angular.module("app",[]);
 app.controller("loginController",function ($scope) {
 	console.log("login run");
@@ -6,20 +7,23 @@ app.controller("loginController",function ($scope) {
 		var name=loginFrm.username.value;
 		var pass=loginFrm.password.value;
 		var userData = {
-			name:name,
-			pass:pass
+			username:name,
+			password:pass
 		};
 		if(verifyParam(name,pass) === true){
 			$.ajax({
 				url: "/ldblog/loginAction",
-				data:userData,
+				contentType:"application/json;charset=utf-8",
+				data:JSON.stringify(userData),
 				dataType: "json",
 				type: "post",
 				async: false,
 				success: function (data) {
 					resData = data;
 					if(data.state === "success") {
-						window.location.href = "index.html";
+						//设置cookie
+						utilService.setCookie("username",data.data[0].username,1000*60*30);
+						window.location.href = "./index.html";
 					}
 					console.log(data);
 				},
@@ -29,11 +33,11 @@ app.controller("loginController",function ($scope) {
 			});
 
 		}
-		
+
 
 	}
 	$scope.register = function () {
-        window.location.href = "register.html"
+        window.location.href = "./register.html"
     }
 
 	function verifyParam(name,pass) {

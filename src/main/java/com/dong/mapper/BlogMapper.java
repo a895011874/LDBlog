@@ -14,7 +14,7 @@ import java.util.List;
 public interface BlogMapper
 {
 
-    List<Blog> getAllBlog();
+    List<Blog> getAllBlog(String username);
 
     void createBlog(Blog blog);
 

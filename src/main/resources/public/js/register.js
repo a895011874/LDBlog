@@ -24,7 +24,7 @@ app.controller("registerController", function ($scope) {
             success: function (data) {
                 resData = data;
                 if (data.state === "success") {
-                    window.location.href = "login.html";
+                    window.location.href = "./login.html";
                 }
                 console.log(data);
             },

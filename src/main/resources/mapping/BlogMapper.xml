@@ -7,23 +7,29 @@
         <result column="TITLE" property="title" jdbcType="VARCHAR"/>
         <result column="CONTENT" property="content" jdbcType="VARCHAR"/>
         <result column="TYPEID" property="typeId" jdbcType="VARCHAR"/>
+        <result column="TYPENAME" property="typeName" jdbcType="VARCHAR"/>
         <result column="CREATETIME" property="createTime" jdbcType="TIMESTAMP"/>
     </resultMap>
+
     <sql id="Base_Column_List">
-    ID,AUTHOR,TITLE,CONTENT,TYPEid,CREATETIME
+    ID,AUTHOR,TITLE,CONTENT,TYPENAME,CREATETIME
   </sql>
 
 
     <select id="getAllBlog" resultMap="BaseResultMap" parameterType="java.lang.String">
         select
         <include refid="Base_Column_List"/>
-        from tbl_blog
+        from tbl_blog LEFT JOIN tbl_type ON tbl_blog.typeId = tbl_type.TypeId WHERE author = #{username} ORDER BY createTime DESC
     </select>
 
     <insert id="createBlog" parameterType="com.dong.dao.Blog">
     INSERT INTO tbl_blog (id,author,title,content,typeId,createTime) VALUES (#{id,jdbcType = VARCHAR},#{author,jdbcType = VARCHAR},#{title,jdbcType =
      VARCHAR},#{content,jdbcType = VARCHAR},#{typeId,jdbcType = TINYINT},#{createTime,jdbcType=TIMESTAMP})
-
   </insert>
 
+    <select id="getBlogById" resultMap="BaseResultMap" parameterType="java.lang.String">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM tbl_blog LEFT JOIN tbl_type ON tbl_blog.typeId = tbl_type.TypeId WHERE tbl_blog.id = #{id} limit 1
+    </select>
 </mapper>

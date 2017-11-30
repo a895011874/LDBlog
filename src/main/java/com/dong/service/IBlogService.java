@@ -12,7 +12,7 @@ import java.util.List;
 
 public interface IBlogService
 {
-    List<Blog> getAllBlog();
+    List<Blog> getAllBlog(String username);
 
     HttpRes createBlog(String blogData);
 

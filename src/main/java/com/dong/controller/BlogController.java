@@ -16,16 +16,29 @@ public class BlogController
     @Autowired
     private IBlogService blogService;
 
-    @GetMapping(value = "blogs")
-    public HttpRes getAllBlog()
+    @GetMapping(value = "blogs/{username}")
+    public HttpRes getAllBlog(@PathVariable("username")String username)
     {
 
         HttpRes httpRes = new HttpRes();
         List list = new ArrayList();
         httpRes.setState(HttpRes.SUCCESS);
 
-        List<Blog> blogs =  blogService.getAllBlog();
+        List<Blog> blogs =  blogService.getAllBlog(username);
         httpRes.setData(blogs);
+
+        return httpRes;
+    }
+
+    @GetMapping("blog/{id}")
+    public HttpRes getBlogById(@PathVariable("id") String id)
+    {
+        HttpRes httpRes = new HttpRes();
+        Blog blog = blogService.getBlogById(id);
+
+        List<Blog> blogList = new ArrayList<Blog>();
+        blogList.add(blog);
+        httpRes.setData(blogList);
 
         return httpRes;
     }
@@ -39,8 +52,9 @@ public class BlogController
 
         blogService.createBlog(data);
 
+        res.setState(HttpRes.SUCCESS);
 
-        return blogService.createBlog(data);
+        return res;
     }
 
     @DeleteMapping(value ="blog/{id}")

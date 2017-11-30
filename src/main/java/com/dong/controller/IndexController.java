@@ -36,11 +36,9 @@ public class IndexController
 
         JSONObject userData = JSONObject.parseObject(data);
 
-        String u1 = userData.getString("username");
-        String u2 = userData.getString("password");
+        String username = userData.getString("username");
+        String password = userData.getString("password");
 
-        String username = JSONParamUtil.getValue(data,"name");
-        String password = JSONParamUtil.getValue(data,"pass");
         User user = userService.getUser(username);
 
         if (password.equals(user.getPassword())){

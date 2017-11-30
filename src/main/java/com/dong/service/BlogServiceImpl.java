@@ -20,9 +20,9 @@ public class BlogServiceImpl implements IBlogService
     @Autowired
     private BlogMapper blogMapper;
 
-    public List<Blog> getAllBlog()
+    public List<Blog> getAllBlog(String username)
     {
-        return blogMapper.getAllBlog();
+        return blogMapper.getAllBlog(username);
     }
 
     @Override
@@ -38,7 +38,7 @@ public class BlogServiceImpl implements IBlogService
         blog.setId(UUID.randomUUID().toString());
         blog.setContent(blogJson.getString("content"));
         blog.setTypeId(8);
-        blog.setAuthor("admin");
+        blog.setAuthor(blogJson.getString("username"));
         blogMapper.createBlog(blog);
 
         httpRes.setState(HttpRes.SUCCESS);
